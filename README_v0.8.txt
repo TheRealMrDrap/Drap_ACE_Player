@@ -1,5 +1,5 @@
 DRAP ACE PLAYER v0.8
-Base: v0.7 enviada por Carlos.
+Base: v0.7 enviada por MrDrap.
 
 - Eliminado todo lo relacionado con VPN Gate/OpenVPN: interfaz, imports, configuraciones, conexiones, speedtest y persistencia.
 - Interfaz simplificada: reproducción, AceStream Engine, MPV y registro.
