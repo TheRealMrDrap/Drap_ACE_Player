@@ -5,23 +5,16 @@ Interfaz para Windows que envía un Content ID de AceStream al motor local y rep
 ## Requisitos
 
 1. AceStream Engine iniciado y escuchando en `127.0.0.1:6878`.
-2. `mpv.exe` junto al programa, o dentro de una subcarpeta llamada `mpv`, o instalado en PATH.
-3. Windows 10/11 para la integración VPN.
+2. `mpv.exe` junto al programa, o dentro de una subcarpeta llamada `mpv`, o instalado en PATH. El propio programa lo chequea y te permite instalarlo en la misma carpeta que donde dejes el exe.
+3. Windows 7/10/11 compatible.
 
 ## Funciones
 
 - Acepta `acestream://ID`, un ID de 40 caracteres o una URL que contenga `id=ID`.
 - Caché configurable desde 60 hasta 900 segundos.
 - Comprueba la versión del motor mediante su API local.
-- Detecta perfiles VPN de Windows creados con `Add-VpnConnection` o Configuración de Windows.
-- Conecta y desconecta mediante `rasdial`, sin almacenar usuario ni contraseña.
-- Recuerda enlace, caché, perfil VPN y pantalla completa en `%APPDATA%\DRAP Ace Player\config.json`.
-
-## Crear el EXE
-
-Ejecuta `CREAR_EXE.bat`. El resultado queda en `dist\DRAP_ACE_PLAYER.exe`.
-
-Copia después `mpv.exe` junto al EXE. Si tu distribución de MPV incluye DLL adicionales, conserva la distribución completa dentro de una carpeta `mpv` junto al EXE.
+- Recuerda enlace, caché y pantalla completa en `%APPDATA%\DRAP Ace Player\config.json`.
+- Tenemos listado de chequeo de salud del ID visto, si abre y está encendido un tiempo, marca en verde, si no arranca marca ROTO y la fecha de prueba, se puede revisar, editar o marcar como queramos para su futuro uso.
 
 ## Nota sobre la caché
 
@@ -29,4 +22,4 @@ Copia después `mpv.exe` junto al EXE. Si tu distribución de MPV incluye DLL ad
 
 ## VPN ** Hasta la versión 0.7
 
-El programa solo usa perfiles VPN ya configurados en Windows. Guarda las credenciales desde Windows; la aplicación no pide ni almacena contraseñas. La VPN es responsabilidad del usuario y debe utilizarse conforme a la ley y a las condiciones del servicio.
+Puse una OpenVPN que sacaba un listado de VPNs Gratuitas globales, pero solo conseguí que conectara a Japón un par de veces, la velocidad era muy lenta, en el futuro no descarto probar en futuras versiones.
