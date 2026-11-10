@@ -1,0 +1,58 @@
+DRAP-ACE Player v0.8.4
+========================
+
+CONTENIDO DEL PAQUETE
+---------------------
+- drap_ace_player_v084.py          Codigo fuente completo.
+- CREAR_EXE_v0.8.4.bat             Creador automatico del EXE.
+- MrDrap_Player.ico                Icono multirresolucion para Windows.
+- MrDrap_Player_64.png             Icono usado por la ventana.
+- MrDrap_Player_256.png            Logotipo usado por la interfaz.
+- LEEME_CAMBIOS_v0.8.4.txt         Este documento.
+
+CAMBIOS DE SEGURIDAD
+--------------------
+1. Eliminada la elevacion UAC global.
+   - El BAT ya no utiliza --uac-admin.
+   - DRAP-ACE Player se ejecuta con permisos normales.
+
+2. Instalacion segura de MPV.
+   - Consulta la ultima release mediante la API de GitHub.
+   - Exige el digest SHA-256 publicado para el asset.
+   - Calcula el SHA-256 local despues de descargarlo.
+   - Solo extrae MPV cuando ambos hashes coinciden.
+   - Si falta el digest o no coincide, elimina la descarga y cancela la instalacion.
+
+3. Validacion de AceStream Engine.
+   - Busca primero en Program Files y Program Files (x86).
+   - LocalAppData y AppData quedan como compatibilidad.
+   - La primera vez muestra ruta y SHA-256 del ejecutable encontrado.
+   - Pregunta si AceStream se descargo e instalo desde una fuente fiable.
+   - Incluye la advertencia de que DRAP no puede garantizar ejecutables de terceros.
+   - La confianza queda guardada como ruta + SHA-256.
+   - Si el archivo cambia, vuelve a solicitar confirmacion.
+
+4. Parada segura del Engine.
+   - Solo detiene por PID el proceso de AceStream iniciado por DRAP.
+   - No mata por nombre un Engine que ya estuviera abierto antes.
+
+CAMBIOS VISUALES
+----------------
+- Logotipo de 118 x 118 px situado a la izquierda.
+- Texto DRAP-ACE Player centrado en la cabecera.
+- Version v0.8.4 debajo del nombre.
+
+CREAR EL EXE
+------------
+1. Descomprimir todos los archivos en la misma carpeta.
+2. Ejecutar CREAR_EXE_v0.8.4.bat.
+3. Esperar a que se instalen/actualicen PyInstaller, CustomTkinter y Pillow.
+4. El ejecutable se crea en:
+
+   dist\DRAP_ACE_PLAYER_v0.8.4.exe
+
+NOTAS
+-----
+- No borrar ni renombrar los iconos antes de compilar.
+- Para instalar MPV, el equipo necesita acceso HTTPS a api.github.com y github.com.
+- AceStream Engine debe instalarse por separado desde una fuente que el usuario considere fiable.
